@@ -8,9 +8,10 @@
         print_r($_REQUEST, FALSE);
         print_r($_GET, FALSE);
         print_r($_POST, FALSE);
-        print_r($_SERVER, FALSE);
         echo("\n");
-        echo date("h:i:s") . "\n"; 
+        echo date("h:i:s") . "\n";
+        echo date("h:i:s") . "\n";  
+        print_r($_SERVER, FALSE);
         ?>
     </body>
 </html>
