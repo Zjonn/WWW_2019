@@ -5,12 +5,11 @@
     <body>
     Kurs WWW 2019<br>
         <?php 
-        print_r($_REQUEST, FALSE);
+        print_r($_REQUEST, FALSE);<br>
         print_r($_GET, FALSE);
         print_r($_POST, FALSE);
-        echo("\n");
-        echo date("h:i:s") . "\n";
-        echo date("h:i:s") . "\n";  
+        echo("\r\n");
+        echo date("h:i") . "\r\n";
         print_r($_SERVER, FALSE);
         ?>
     </body>
