@@ -6,10 +6,13 @@
     Kurs WWW 2019<br>
         <?php 
         print_r($_REQUEST, FALSE);
+        echo "<br>";
         print_r($_GET, FALSE);
+        echo "<br>";
         print_r($_POST, FALSE);
-        echo("\r\n");
+        echo "<br>";
         echo date("h:i") . "\r\n";
+        echo "<br>";
         print_r($_SERVER, FALSE);
         ?>
     </body>
