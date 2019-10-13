@@ -5,7 +5,7 @@
     <body>
     Kurs WWW 2019<br>
         <?php 
-        print_r($_REQUEST, FALSE);<br>
+        print_r($_REQUEST, FALSE);
         print_r($_GET, FALSE);
         print_r($_POST, FALSE);
         echo("\r\n");
