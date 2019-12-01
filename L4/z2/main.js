@@ -5,9 +5,8 @@ var rodzaj = document.getElementsByName("Rodzaj")
 
 var m_models = { "Ford": ["Fiesta", "Focus"], "Fiat": ["126p", "punto"] }
 
-
 document.addEventListener("DOMContentLoaded", function () {
-    for (var key in m_models) {
+    for (let key in m_models) {
         marka.appendChild(get_new_option(key))
     }
     marka.selected = "Ford"
@@ -58,4 +57,3 @@ function update_DOM(marka) {
         model.appendChild(get_new_option(m))
     });
 }
-

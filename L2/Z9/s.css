@@ -4,11 +4,11 @@
 }
 #horizontal > div:nth-child(1) {
 	background-color:lightgreen;
-	flex: 8 8 250px;
+  flex: 20 20 250px;
 }
 #horizontal > div:nth-child(2) {
 	background-color:lightblue;
-	flex: 8 8 250px;
+	flex: 10 10 250px;
 }
 #horizontal > div:nth-child(3) {
 	background-color:magenta;
