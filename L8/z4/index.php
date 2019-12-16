@@ -1,5 +1,4 @@
 <?php
-require "../bootstrap.php";
 use pet_controller;
 
 header("Access-Control-Allow-Origin: *");
