@@ -26,3 +26,4 @@ if (isset($uri[2])) {
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 // pass the request method and user ID to the PersonController and process the HTTP request:
+?>
