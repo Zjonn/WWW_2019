@@ -1,0 +1,158 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server patientstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    "version": "1.0.3",
+    "title": "Swagger patientstore",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": { "email": "apiteam@swagger.io" },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "patientstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "patients",
+      "description": "Everything about patients",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    },
+    { "name": "visit", "description": "Informations about visits" },
+  ],
+  "schemes": ["https", "http"],
+  "paths": {
+    "/patient/{patientId}": {
+      "get": {
+        "tags": ["patient"],
+        "summary": "Find patient by ID",
+        "description": "Returns a single patient",
+        "operationId": "getpatientById",
+        "produces": ["application/json", "application/xml"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "path",
+            "description": "ID of patient to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": { "$ref": "#/definitions/patient" }
+          },
+          "400": { "description": "Invalid ID supplied" },
+          "404": { "description": "patient not found" }
+        }
+      },
+      "post": {
+        "tags": ["patient"],
+        "summary": "Updates a patient in the store with form data",
+        "description": "",
+        "operationId": "updatepatientWithForm",
+        "consumes": ["application/x-www-form-urlencoded"],
+        "produces": ["application/json", "application/xml"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "path",
+            "description": "ID of patient that needs to be updated",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Updated name of the patient",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "Updated status of the patient",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": { "405": { "description": "Invalid input" } }
+      },
+      "delete": {
+        "tags": ["patient"],
+        "summary": "Deletes a patient",
+        "description": "",
+        "operationId": "deletepatient",
+        "produces": ["application/json", "application/xml"],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "patientId",
+            "in": "path",
+            "description": "patient id to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "400": { "description": "Invalid ID supplied" },
+          "404": { "description": "patient not found" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer", "format": "int64" },
+        "name": { "type": "string" }
+      },
+      "xml": { "name": "Category" }
+    },
+    "patient": {
+      "type": "object",
+      "required": ["name", "photoUrls"],
+      "properties": {
+        "id": { "type": "integer", "format": "int64" },
+        "category": { "$ref": "#/definitions/Category" },
+        "name": { "type": "string", "example": "doggie" },
+        "status": {
+          "type": "string",
+          "description": "patient status in the store",
+          "enum": ["available", "pending", "sold"]
+        }
+      },
+      "xml": { "name": "patient" }
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer", "format": "int64" },
+        "patientId": { "type": "integer", "format": "int64" },
+        "quantity": { "type": "integer", "format": "int32" },
+        "shipDate": { "type": "string", "format": "date-time" },
+        "status": {
+          "type": "string",
+          "description": "Order Status",
+          "enum": ["placed", "approved", "delivered"]
+        },
+        "complete": { "type": "boolean" }
+      },
+      "xml": { "name": "Order" }
+    }
+  }
+}
