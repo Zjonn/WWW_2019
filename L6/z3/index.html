@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="pl">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <table id="users" class="table">
-        <thead>
-            <tr class="table-hd">
-                <th>Imie</th>
-                <th>Nazwisko</th>
-                <th>Kod pocztowy</th>
-                <th>Data urodzenia</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John </td>
-                <td>Doe</td>
-                <td>123</td>
-                <td>12-01-1990</td>
-                <td> <button class="rm_button">Remove</button></td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr class="table-hd">
+          <th>Imie</th>
+          <th>Nazwisko</th>
+          <th>Kod pocztowy</th>
+          <th>Data urodzenia</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>123</td>
+          <td>12-01-1990</td>
+          <td><button id="rm_button">Remove</button></td>
+        </tr>
+      </tbody>
     </table>
     <button id="create-user" class="button">Create new user</button>
 
-    <div id="dialog-confirm" title="Na pewno chcesz usunąć wpis?">
+    <div id="dialog-confirm" title="Na pewno chcesz usunąć wpis?"></div>
+
+    <div id="dialog-form" title="Create new user">
+      <p class="validateTips">All form fields are required.</p>
+
+      <form>
+        <fieldset>
+          <label for="name">Imię</label>
+          <input type="text" name="name" id="name" value="Jane" />
+          <label for="surname">Nazwisko</label>
+          <input type="text" name="surname" id="surname" value="Smith" />
+          <label for="code">Code</label>
+          <input type="text" name="code" id="code" value="22-500" />
+          <label for="data">Data ur</label>
+          <input type="date" data-date-format="DD-MMMM-YYYY" name="data" id="data" value="23-12-1997" />
+        </fieldset>
+      </form>
     </div>
 
-    <SCRIPT language="javascript" type="text/javascript" src="main.js"></SCRIPT>
-</body>
-
+    <script language="javascript" type="text/javascript" src="main.js"></script>
+  </body>
 </html>
